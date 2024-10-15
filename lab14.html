@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lab14.css">
+    <title>phonepage</title>
+</head>
+<body>
+    <nav style="width: 100%; text-align:center; display: flex; justify-content:center; align-items: center; height: 10vh;">
+        <div class="header" style="display: flex; gap: 5px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 3vh;">
+            <div class="name" id="name">My mine</div>'s phone book
+        </div>
+    </nav>
+    <div class="container" style="width: 100%; text-align: center; align-items: center; justify-content: center; display: flex;">
+        <div class="profile" id="profile" style="background-image: url(https://scontent.fbkk13-2.fna.fbcdn.net/v/t39.30808-1/300509513_451268183688608_2288913407842510567_n.jpg?stp=dst-jpg_s200x200&_nc_cat=107&ccb=1-7&_nc_sid=f4b9fd&_nc_eui2=AeEmd-P0xFrcVhSA3MdvWG-8oTfBoc9JHXihN8Ghz0kdeMWDyt_0Y2uK2UFxsbmZ2EjJH9l018QXqahGUQtMU1F8&_nc_ohc=vBa08SygSg0Q7kNvgFtdAT2&_nc_zt=24&_nc_ht=scontent.fbkk13-2.fna&_nc_gid=AXJheaDEaA3KIWCIdTbANJS&oh=00_AYB0GnF5L3plXlJ7UvqvyMGVNqpR4wJv2CtHKkfOMoRbzw&oe=671449DC); width: 183px; height: 183px; position: relative; background-position: center; background-size: cover; border-radius: 50%;">
+            <div class="alert" style="position: absolute; background-color: rgb(255, 0, 0); padding: 1vh 1.5vh; border-radius: 50%; color: rgb(0, 0, 0); right: 0; bottom: 0;">
+                <p>1</p>
+            </div>
+        </div>
+    </div>
+    <div class="input-container" style="width: 100%; display: flex; flex-direction: column; padding: 2vh 0vh; gap: 30px; align-items: center; text-align: center; justify-content: center;">
+        <div class="card" style="display: flex; gap: 10px;">
+            <label for="" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" >Set username</label>
+            <input type="text" placeholder="Enter" id="input" style="border: none; padding: .5vh; border-radius: .5vh; background-color: rgb(218, 218, 218);"><button style="background-color: rgb(255, 0, 0); border: none; padding: 0.3vh 1vh; border-radius: .5vh;" onclick="setUsername()">SET</button>
+        </div>
+        <div class="card" style="display: flex; gap: 10px;">
+            <label for="" >Set the link profile</label>
+            <input type="text" placeholder="Enter" id="profilelink" style="border: none; padding: .5vh; border-radius: .5vh; background-color: rgb(218, 218, 218);"><button style="background-color: rgb(255, 0, 0); border: none; padding: 0.3vh 1vh; border-radius: .5vh;" onclick="setImg()">SET</button>
+        </div>
+    </div>
+    <div class="phone-container" style="width: 100%; text-align: center;">
+        <div class="text-phone" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 2vh; font-weight: 700; margin-bottom: 1vh;">Phone Number List</div>
+        <div class="phone-input">
+            <input type="text" placeholder="Name" id="name-phone" style="border: none; padding: .5vh; border-radius: .5vh; background-color: rgb(218, 218, 218);">
+            <input type="text" placeholder="Tel" id="phone-num" style="border: none; padding: .5vh; border-radius: .5vh; background-color: rgb(218, 218, 218);">
+            <button style="background-color: rgb(255, 0, 0); border: none; padding: 0.3vh 1vh; border-radius: .5vh;" onclick="setElement()">ADD</button>
+            <button style="background-color: rgb(255, 0, 0); border: none; padding: 0.3vh 1vh; border-radius: .5vh;" onclick="ExportElement()">EXPORT</button>
+        </div>
+    </div>
+    <div class="table-container" style="display: flex; align-items: center; text-align: center; justify-content: center; padding: 2vh; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+        <table style="border-bottom: 2px solid black;text-align: left; width: 26%;">
+            <tr>
+              <th style="background-color: rgb(179, 179, 179); border-bottom: 2px solid black;">No</th>
+              <th style="background-color: rgb(179, 179, 179);border-bottom: 2px solid black;">Name</th>
+              <th style="background-color: rgb(179, 179, 179); border-bottom: 2px solid black;">Phone Number </th>
+            </tr>
+            <tr id="myList">
+              <td id="no"></td>
+              <td id="name-phoneeee"></td>
+              <td id="phonenumber"></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        const username = document.getElementById("name")
+        const inpu = document.getElementById("input")
+        const profile = document.getElementById("profile")
+        const link = document.getElementById("profilelink")
+        const namephonee = document.getElementById("name-phone")
+        const phonenum = document.getElementById("phone-num")
+        username.textContent = "Hello";
+        function setUsername(){
+            console.log(inpu.value);
+            username.textContent = inpu.value;
+            inpu.value = "";
+        };
+        
+        function setImg(){
+            profile.style.backgroundImage = "url("+link.value+")";
+            link.value = "";
+        };
+
+        function setElement(){
+            const no = document.createElement("no");
+            const np = document.createElement("name-phoneeee");
+            const pn = document.createElement("phonenumber");
+            for (let i = 0; i < 5; i++) {
+                text += "The number is " + i + "<br>";
+            }
+            const textnode = document.createTextNode(i);
+            no.appendChild(textnode);
+            document.getElementById("no").appendChild(no);
+        };
+
+        function saveCSV() {
+            const csvContent = phonenumber.map(row => row.join(",")).join("\n"); // Convert array to CSV string
+                const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+                const link = document.createElement("a");
+                const url = URL.createObjectURL(blob);
+                link.setAttribute("href", url);
+                link.setAttribute("download", "data.csv");
+                link.style.visibility = "hidden";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+        };
+    </script>
+</body>
+</html>
